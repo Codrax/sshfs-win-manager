@@ -7,7 +7,7 @@
           <input 
             type="text" 
             v-model="searchQuery" 
-            placeholder="Buscar conexiones..."
+            placeholder="Search connections..."
             @input="searchQuery = $event.target.value"
           />
           <button v-show="searchQuery" class="clear-search" @click="searchQuery = ''" v-tooltip="'Limpiar búsqueda'">
@@ -22,8 +22,8 @@
           </div>
 
           <div v-else-if="hasConnections && filteredConnections.length === 0" class="no-data">
-            <h1>No se encontraron resultados</h1>
-            <p>Intenta con otro término de búsqueda</p>
+            <h1>No search results were found</h1>
+            <p>Please try again with some different keywords</p>
           </div>
 
           <draggable :list="filteredConnections" @end="updateConnectionList" :disabled="hasActiveSearch" chosenClass="highlight-item" dragClass="hide-dragging-item" handle=".grip" animation="200">
