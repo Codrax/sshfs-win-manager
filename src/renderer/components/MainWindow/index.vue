@@ -10,8 +10,8 @@
             placeholder="Search connections..."
             @input="searchQuery = $event.target.value"
           />
-          <button v-show="searchQuery" class="clear-search" @click="searchQuery = ''" v-tooltip="'Limpiar búsqueda'">
-            <Icon icon="unavailable"/>
+          <button v-show="searchQuery" class="clear-search" @click="searchQuery = ''" v-tooltip="'Clear search'">
+            <Icon icon="close"/>
           </button>
         </div>
 
@@ -22,7 +22,7 @@
           </div>
 
           <div v-else-if="hasConnections && filteredConnections.length === 0" class="no-data">
-            <h1>No search results were found</h1>
+            <h1>No results were found</h1>
             <p>Please try again with some different keywords</p>
           </div>
 
@@ -471,13 +471,13 @@ export default {
       border-bottom: 1px solid lighten(@main-color, 1%);
       display: flex;
       align-items: center;
-      gap: 10px;
 
       svg {
         fill: fade(contrast(@main-color), 30%);
         width: 20px;
         height: 20px;
         flex-shrink: 0;
+        margin-right: 10px;
       }
 
       input {
@@ -488,6 +488,7 @@ export default {
         padding: 8px 12px;
         color: contrast(@main-color);
         font-size: 11pt;
+        margin-right: 10px;
 
         &::placeholder {
           color: fade(contrast(@main-color), 30%);
